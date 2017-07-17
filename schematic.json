@@ -1,13 +1,28 @@
-{
-	"soundboard": [
-		{
-			"control_id":"hacktheplanet",
-			"text":"Hack The Planet",
-			"cost":0,
-			"position":[
-				{"size": "large", "x": 30, "y": 3, "width": 20, "height": 15},{ "size": "medium", "width": 20, "height": 15, "x": 13, "y": 5},{ "size": "small", "x": 5, "y": 8, "width": 20, "height": 15}
-			],
-			"SoundPath" : "Hack the Planet!.m4a"
-		}
-	]
-}
+[
+	{
+		"controlID": "hacktheplanet",
+		"kind": "button",
+		"meta": {
+			"SoundPath": {
+				"value": "Hack the Planet!.m4a"
+			}
+		},
+		"position": [
+			{
+				"height": 7,
+				"size": "large",
+				"width": 10,
+				"x": 4,
+				"y": 3
+			},
+			{
+				"height": 10,
+				"size": "medium",
+				"width": 6,
+				"x": 1,
+				"y": 1
+			}
+		],
+		"text": "Hack teh planetz!!"
+	}
+]
