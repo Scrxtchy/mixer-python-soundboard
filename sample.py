@@ -37,24 +37,27 @@ class example():
 		await self.setupControls()
 
 	async def setupControls(self):
+
 		with open("schematic.json") as schematic:
 			buttons = json.loads(schematic.read())
-		for button in buttons['soundboard']:
-			tempButton = beam_interactive2.Button(
-				control_id=button['control_id'],
+		buttonarr = []
+		for button in buttons:
+			buttonarr.append( beam_interactive2.Button(
+				control_id=button['controlID'],
 				text=button['text'],
-				cost=button['cost'],
-				position=button['position'])
-			tempButton.on('mousedown', lambda call:self.buttonPress(call, os.getcwd() + '/audio/' + button['SoundPath']))
-			await self.interactive.scenes['default'].create_controls(tempButton)
-			del tempButton
-		
+				cost=button.get('cost', 0),
+				position=button['position']))
+
+			if button.get('meta', False):
+				file = button['meta']['SoundPath']['value']
+				buttonarr[-1].on('mousedown', lambda call:self.buttonPress(call, os.getcwd() + '/audio/' + file))
+			await self.interactive.scenes['default'].create_controls(buttonarr[-1])
 		await self.interactive.set_ready()
 
 
 	async def buttonPress(self, call, audioFile):
 		print('playing ' + audioFile)
-		subprocess.call(["ffplay", "-nodisp", "-autoexit", "-v", "quiet", audioFile])
+		subprocess.Popen(["ffplay", "-nodisp", "-autoexit", "-v", "quiet", audioFile])
 
 	async def keypress(self, call):
 		pass
