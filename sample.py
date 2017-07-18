@@ -37,24 +37,35 @@ class example():
 		await self.setupControls()
 
 	async def setupControls(self):
+
 		with open("schematic.json") as schematic:
 			buttons = json.loads(schematic.read())
-		for button in buttons['soundboard']:
-			tempButton = beam_interactive2.Button(
-				control_id=button['control_id'],
+		self.buttonobj = {}
+		print('creating buttons')
+		for button in buttons:
+			self.buttonobj[button['controlID']] = beam_interactive2.Button(
+				control_id=button['controlID'],
 				text=button['text'],
-				cost=button['cost'],
-				position=button['position'])
-			tempButton.on('mousedown', lambda call:self.buttonPress(call, os.getcwd() + '/audio/' + button['SoundPath']))
-			await self.interactive.scenes['default'].create_controls(tempButton)
-			del tempButton
-		
+				cost=button.get('cost', 0),
+				position=button['position'],
+				meta=button.get('meta', {"SoundPath": {"value": "it is a mystery.webm"}}))
+			print("{} <= {}".format(button['controlID'], self.buttonobj[button['controlID']]._data['meta']._data['SoundPath']['value']))
+
+			self.buttonobj[button['controlID']].on('mousedown', lambda call:self.buttonPress(call))
+			await self.interactive.scenes['default'].create_controls(self.buttonobj[button['controlID']])
 		await self.interactive.set_ready()
+		print('#####################')
+		print('new button meta values')
+		for button in buttons:
+			print("{} <= {}".format(button['controlID'], self.buttonobj[button['controlID']]._data['meta']._data['SoundPath']['value']))
 
 
-	async def buttonPress(self, call, audioFile):
-		print('playing ' + audioFile)
-		subprocess.call(["ffplay", "-nodisp", "-autoexit", "-v", "quiet", audioFile])
+	async def buttonPress(self, call):
+		#print(call.__dict__)
+		#print('playing ' + audioFile)
+		print(self.buttonobj[call._payload['params']['input']['controlID']]._data['meta']._data)
+		#._data['meta']._data['SoundPath']['value']
+		#subprocess.Popen(["ffplay", "-nodisp", "-autoexit", "-v", "quiet", self.buttonobj[call._payload['params']['input'['controlID']]]._data['meta']._data['SoundPath']['value']])
 
 	async def keypress(self, call):
 		pass

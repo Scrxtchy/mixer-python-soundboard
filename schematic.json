@@ -1,13 +1,148 @@
-{
-	"soundboard": [
-		{
-			"control_id":"hacktheplanet",
-			"text":"Hack The Planet",
-			"cost":0,
-			"position":[
-				{"size": "large", "x": 30, "y": 3, "width": 20, "height": 15},{ "size": "medium", "width": 20, "height": 15, "x": 13, "y": 5},{ "size": "small", "x": 5, "y": 8, "width": 20, "height": 15}
-			],
-			"SoundPath" : "Hack the Planet!.m4a"
-		}
-	]
-}
+[
+	{
+		"controlID": "b1",
+		"kind": "button",
+		"meta": {
+			"SoundPath": {
+				"value": "Hack the Planet!.m4a"
+			}
+		},
+		"position": [
+			{
+				"height": 7,
+				"size": "large",
+				"width": 10,
+				"x": 4,
+				"y": 3
+			},
+			{
+				"height": 10,
+				"size": "medium",
+				"width": 6,
+				"x": 1,
+				"y": 1
+			}
+		],
+		"text": "Hack teh planetz!!"
+	},
+	{
+		"controlID": "b2",
+		"kind": "button",
+		"meta": {
+			"SoundPath": {
+				"value": "wisdom.wav"
+			}
+		},
+		"position": [
+			{
+				"height": 7,
+				"size": "large",
+				"width": 10,
+				"x": 5,
+				"y": 11
+			}
+		],
+		"text": "Suppository of Wisdom"
+	},
+	{
+		"controlID": "b3",
+		"kind": "button",
+		"meta": {
+			"SoundPath": {
+				"value": "gaming.wav"
+			}
+		},
+		"position": [
+			{
+				"height": 7,
+				"size": "large",
+				"width": 9,
+				"x": 17,
+				"y": 3
+			}
+		],
+		"text": "hey professor"
+	},
+	{
+		"controlID": "b4",
+		"kind": "button",
+		"position": [
+			{
+				"height": 7,
+				"size": "large",
+				"width": 9,
+				"x": 17,
+				"y": 12
+			}
+		],
+		"text": "b4"
+	},
+	{
+		"controlID": "b5",
+		"kind": "button",
+		"position": [
+			{
+				"height": 7,
+				"size": "large",
+				"width": 10,
+				"x": 29,
+				"y": 3
+			}
+		],
+		"text": "b5"
+	},
+	{
+		"controlID": "b6",
+		"kind": "button",
+		"position": [
+			{
+				"height": 7,
+				"size": "large",
+				"width": 10,
+				"x": 28,
+				"y": 11
+			}
+		],
+		"text": "b6"
+	},
+	{
+		"controlID": "b7",
+		"kind": "button",
+		"position": [],
+		"text": "b7"
+	},
+	{
+		"controlID": "b8",
+		"kind": "button",
+		"position": [],
+		"text": "b8"
+	},
+	{
+		"controlID": "b9",
+		"kind": "button",
+		"position": [
+			{
+				"height": 8,
+				"size": "large",
+				"width": 20,
+				"x": 48,
+				"y": 1
+			}
+		],
+		"text": "b9"
+	},
+	{
+		"controlID": "b0",
+		"kind": "button",
+		"position": [
+			{
+				"height": 8,
+				"size": "large",
+				"width": 20,
+				"x": 48,
+				"y": 11
+			}
+		],
+		"text": "b0"
+	}
+]
